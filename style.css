@@ -1,0 +1,98 @@
+/* Estilização da caixa de resumo */
+.resumo-box {
+    background-color: #ffffff !important;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 8px solid #1f77b4;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Forçar o texto a ser preto para leitura */
+.resumo-box, .resumo-box p, .resumo-box li, .resumo-box div {
+    color: #000000 !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.resumo-title {
+    color: #1f77b4 !important;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Ajuste nos títulos das colunas */
+.video-header {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* --- ESTILIZAÇÃO DO MENU LATERAL (BOTÕES) --- */
+
+/* Transforma o container das opções em botões */
+[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label {
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Efeito Hover (quando passa o mouse por cima) */
+[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:hover {
+    background-color: #e3f2fd;
+    border-color: #1f77b4;
+    transform: translateY(-2px); /* Efeito de "levantar" o botão */
+}
+
+/* Esconde a "bolinha" original de seleção do sistema */
+[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label > div:first-child {
+    display: none !important;
+}
+
+/* Centraliza e estiliza o texto dentro do botão */
+[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label > div:last-child {
+    font-weight: 600;
+    color: #333333;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* --- DESTAQUE PARA O BOTÃO MAPA MENTAL (6º Botão) --- */
+
+/* Aplica o fundo vermelho, sombra e texto branco apenas no 6º item */
+[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(6) {
+    background-color: #ef4444 !important;
+    border-color: #ef4444 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Força a cor do texto do 6º botão a ficar branca */
+[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(6) > div:last-child {
+    color: #ffffff !important;
+}
+
+/* A sua animação de pulsar */
+@keyframes pulsar {
+    0% { transform: scale(1); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+    50% { transform: scale(1.05); box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); }
+    100% { transform: scale(1); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+}
+
+/* Aciona a animação quando o mouse passa por cima do Mapa Mental */
+[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(6):hover {
+    animation: pulsar 0.5s infinite;
+    background-color: #ef4444 !important; /* Mantém a cor no hover */
+}
